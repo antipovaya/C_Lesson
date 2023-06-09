@@ -45,5 +45,16 @@ else
 // Напишите программу, которая на вход принимет одно число (N)?
 // а на выходе показывает все целые числа от -N до N
 
-Console.WriteLine ("Enter one number");
+/*Console.WriteLine ("Enter one number");
 int number = Convert.ToInt32(Console.ReadLine());
+
+int count = number * -1;
+
+while (count <= number)
+{
+    Console.WriteLine(count);
+    count = count + 1; // count += 1    count++
+}
+*/
+
+
