@@ -19,19 +19,31 @@ int number = Convert.ToInt32(Console.ReadLine());
 int result = number * number;
 Console.WriteLine(result);
 */
+
+
+
 //Задача 3. 
 //Напишите программу, которая на вход принимает два числа и проверяет, 
 //является ли первое число квадратом второго.
 
-Console.WriteLine("Enter first number: ");
+/*Console.WriteLine("Enter first number: ");
 Console.WriteLine("Enter second number: ");
+int number1 = Convert.ToInt32(Console.ReadLine());
 int number2 = Convert.ToInt32(Console.ReadLine());
-int number2 = Convert.ToInt32(Console.ReadLine());
-if (number1 == number2 * number2);
+
+if (number1 == number2 * number2)
 {
     Console.WriteLine("First number is a square of the second one");
 }
 else
 {
-    Console.WriteLine(number1 + "is not a square of the" + number2);
+    Console.WriteLine(number1 + " is not a square of the " + number2);
 }
+*/
+
+// Задача 5
+// Напишите программу, которая на вход принимет одно число (N)?
+// а на выходе показывает все целые числа от -N до N
+
+Console.WriteLine ("Enter one number");
+int number = Convert.ToInt32(Console.ReadLine());
