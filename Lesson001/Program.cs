@@ -75,11 +75,11 @@ while (count <= number)
 456 % 1000 = 456
 456 / 1000 = 0
 */
-Console.WriteLine("Enter number");
-int number = Convert.ToInt32(Console.ReadLine());
-if (number >= 100)
+Console.WriteLine("Enter your number");
+int LastNumber = Convert.ToInt32(Console.ReadLine());
+if (LastNumber >= 100 && LastNumber < 1000 || LastNumber < -99 && LastNumber > -1000) // && - логическая и, || - или
 {
-    int a = number % 10;
+    int a = LastNumber % 10;
     Console.WriteLine(a);
 }
 else 
