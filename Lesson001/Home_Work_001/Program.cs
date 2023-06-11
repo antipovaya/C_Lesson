@@ -4,7 +4,7 @@
 //a = 2 b = 10 -> max = 10
 //a = -9 b = -3 -> max = -3
 
-Console.WriteLine("Enter first number: ");
+/*Console.WriteLine("Enter first number: ");
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter second number: ");
 int b = Convert.ToInt32(Console.ReadLine());
@@ -25,4 +25,26 @@ else
         Console.WriteLine("max = " + b);
         Console.WriteLine("min = " + a);
     }
+}
+*/
+
+//Задача 4: Напишите программу, которая принимает на вход три 
+//числа и выдаёт максимальное из этих чисел.
+//2, 3, 7 -> 7
+//44 5 78 -> 78
+//22 3 9 -> 22
+
+Console.WriteLine("Enter first number: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter second number: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter third number: ");
+int c = Convert.ToInt32(Console.ReadLine());
+
+int count = 0; 
+int max = a;
+
+while (count < 3)
+{
+if
 }
