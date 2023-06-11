@@ -34,17 +34,42 @@ else
 //44 5 78 -> 78
 //22 3 9 -> 22
 
-Console.WriteLine("Enter first number: ");
+/*Console.WriteLine("Enter first number: ");
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter second number: ");
 int b = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter third number: ");
 int c = Convert.ToInt32(Console.ReadLine());
 
-int count = 0; 
 int max = a;
+if (a > max) max = a;
+if (b > max) max = b;
+if (c > max) max = c;
 
-while (count < 3)
+Console.Write("max = ");
+Console.WriteLine(max);
+*/
+
+//Задача 6: Напишите программу, которая на вход принимает число и выдаёт, 
+//является ли число чётным (делится ли оно на два без остатка).
+//4 -> да
+//-3 -> нет
+//7 -> нет
+/*
+Console.WriteLine("Enter your number: ");
+int a = Convert.ToInt32(Console.ReadLine());
+
+int x = a % 2;
+
+if (x == 0)
 {
-if
+    Console.Write("Your number " + a);
+    Console.WriteLine(" is even");
 }
+else
+{
+    Console.Write("Your number " + a);
+    Console.WriteLine(" is not even");
+}
+*/
+
