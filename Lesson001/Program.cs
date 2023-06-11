@@ -75,7 +75,7 @@ while (count <= number)
 456 % 1000 = 456
 456 / 1000 = 0
 */
-Console.WriteLine("Enter your number");
+/*Console.WriteLine("Enter your number");
 int LastNumber = Convert.ToInt32(Console.ReadLine());
 if (LastNumber >= 100 && LastNumber < 1000 || LastNumber < -99 && LastNumber > -1000) // && - логическая и, || - или
 {
@@ -86,3 +86,4 @@ else
 {
     Console.WriteLine("Пожалуйста, введите трехзначное число");
 }
+*/
