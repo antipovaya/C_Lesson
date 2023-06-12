@@ -78,13 +78,30 @@ else
 //5 -> 2, 4
 //8 -> 2, 4, 6, 8
 
+/*
 Console.WriteLine ("Enter one number");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int count = number * -1;
+if (number % 2 == 0)
 
-while (count <= number)
 {
-    Console.WriteLine(count);
-    count = count + 1; 
+    int count = number - 2;
+    while (count <= number && count >= 0)
+    {
+        Console.WriteLine(count);
+        count = count - 2;
+    }
 }
+else 
+{
+    number = number - 1;
+    int count = number;
+    while (count <= number && count >= 0)
+    {
+        Console.WriteLine(count);
+        count = count - 2;
+    }
+}
+
+*/
+
