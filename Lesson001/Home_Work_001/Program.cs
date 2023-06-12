@@ -78,7 +78,7 @@ else
 //5 -> 2, 4
 //8 -> 2, 4, 6, 8
 
-/*
+
 Console.WriteLine ("Enter one number");
 int number = Convert.ToInt32(Console.ReadLine());
 
@@ -86,7 +86,7 @@ if (number % 2 == 0)
 
 {
     int count = number - 2;
-    while (count <= number && count >= 0)
+    while (count <= number && count >= 1)
     {
         Console.WriteLine(count);
         count = count - 2;
@@ -96,12 +96,12 @@ else
 {
     number = number - 1;
     int count = number;
-    while (count <= number && count >= 0)
+    while (count <= number && count >= 1)
     {
         Console.WriteLine(count);
         count = count - 2;
     }
 }
 
-*/
+
 
