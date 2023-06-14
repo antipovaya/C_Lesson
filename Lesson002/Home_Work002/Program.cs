@@ -5,7 +5,7 @@
 //782 -> 8
 //918 -> 1
 
-
+/*
 Console.WriteLine ("Введите трехзначное чиcло");
 int num = Convert.ToInt32(Console.ReadLine());
 
@@ -20,7 +20,7 @@ else{
 }
 }
 getNumberTwo(num);
-
+*/
 
 //Задача 13: Напишите программу, которая 
 //выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
@@ -28,3 +28,25 @@ getNumberTwo(num);
 //78 -> третьей цифры нет
 //32679 -> 6
 
+/*
+int num = new Random().Next(1, 99999);
+Console.WriteLine(num);
+
+void getNumberThree (int x){
+
+    if (x < 100){
+        Console.WriteLine($"Число {x} не имеет третьей цифры");
+    }
+
+    else {
+        int count = x;
+        while (count >= 1000){
+            count = count / 10;
+
+        }
+        count = count % 10;
+        Console.WriteLine($"Третья цифра числа {x} - это {count}");
+    }
+}
+getNumberThree(num);
+*/
