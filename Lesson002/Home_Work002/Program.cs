@@ -50,3 +50,53 @@ void getNumberThree (int x){
 }
 getNumberThree(num);
 */
+
+//Задача 15: Напишите программу, которая принимает на вход цифру, 
+//обозначающую день недели, и проверяет, является ли этот день выходным.
+//6 -> да
+//7 -> да
+//1 -> нет
+
+//Вариант_15.1
+/*
+bool getWeek(){
+    Console.WriteLine("Введите число от 1 до 7 включительно");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+
+    if (num == 6 || num == 7){
+
+        return true;
+    }
+    else{
+
+        return false;
+    }
+}
+Console.WriteLine("Result is - " + getWeek());
+*/
+
+//Вариант_15.2
+
+Console.WriteLine("Введите число от 1 до 7 включительно");
+int num = Convert.ToInt32(Console.ReadLine());
+
+void getWeek(int x){
+    if (x <= 7 && x >= 1){
+
+    
+        if (x == 6 || x == 7){
+
+            Console.WriteLine("Да, это выходной");
+        }
+        else{
+
+            Console.WriteLine("Нет, это не выходной");
+        }
+    }
+    else{
+        Console.WriteLine("Ошибка! Пожалуйста, введите число от 1 до 7 включительно");
+    }
+}
+getWeek(num);
+
