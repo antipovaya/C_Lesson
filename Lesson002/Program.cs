@@ -78,7 +78,7 @@ System.Console.WriteLine("Не вводи 0)))");
 
 // Напишите программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23.
 
-Console.WriteLine("Enter number");
+/*Console.WriteLine("Enter number");
 int num = Convert.ToInt32(Console.ReadLine());
 
 void getNumberDiv (int x)
@@ -92,18 +92,32 @@ void getNumberDiv (int x)
       Console.WriteLine(x + " не является кратным 7 и 23");    
     }
 }
-getNumberDiv(num);
+getNumberDiv(num);*/
 
-// Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
+// Напишите программу, которая принимает на вход два числа и проверяет, 
+//является ли одно число квадратом другого.
 
 /*Console.WriteLine("Enter first number");
 int num1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter second number");
 int num2 = Convert.ToInt32(Console.ReadLine());
 
-int a = num1*num1;
-int b = num2*num2;
-if (a = num2 || b = num1){
-    Console.WriteLine("Enter second number");
+void getNumberSquare (int x, int y){
+
+int a = x*x;
+int b = y*y;
+if (a == y){
+    Console.WriteLine($"Число {y} является квадратом {x}");
 }
+else{
+    if (b == x){
+       Console.WriteLine($"Число {x} является квадратом {y}"); 
+    }
+    else{
+        Console.WriteLine($"Число {x} и {y} не являются квадратами друг друга"); 
+    }
+}
+
+}
+getNumberSquare(num1, num2);
 */
