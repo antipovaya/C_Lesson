@@ -114,8 +114,8 @@ else {
 */
 //Напишите программу, которая по заданному номеру четверти, 
 //показывает диапазон возможных координат точек в этой четверти (x и y).
-
-/*void PossibleValue (int quadro)
+/*
+void PossibleValue (int quadro)
 {
     if (quadro == 1)
         Console.WriteLine ("1st quater x > 0, y > 0");
@@ -133,8 +133,8 @@ int numQater = Convert.ToInt32(Console.ReadLine());
 if(numQater >= 1 && numQater <= 4)
     PossibleValue(numQater);
 else Console.WriteLine("its not number of quater!");
-
 */
+
 //Напишите программу, которая принимает на вход координаты двух точек и 
 //находит расстояние между ними в 2D пространстве.
 // A(x1,y1); B(x2,y2)
