@@ -139,10 +139,57 @@ else Console.WriteLine("its not number of quater!");
 //находит расстояние между ними в 2D пространстве.
 // A(x1,y1); B(x2,y2)
 
+                //------------------------
+// duoble distanceAB = \/ (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) 
+
+// duoble так как извлекаем корень
+
+//Math.Sqrt (25); - извлекаем квадрат с помощью библиотеки Math
+
+
+/*double LongLineAB (int xA, int xB, int yA, int yB){
+
+    double longLine = Math.Sqrt((xB - xA)*(xB - xA) + (yB - yA)*(yB - yA));
+    //longLine = Math.Round (longLine, 2);
+    return longLine;
+}
+
+Console.WriteLine("Input number X coord of A: ");
+int xCoordA = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input number Y coord of A: ");
+int yCoordA = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input number X coord of B: ");
+int xCoordB = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input number Y coord of B: ");
+int yCoordB = Convert.ToInt32(Console.ReadLine());
+
+double dist = LongLineAB (xCoordA, xCoordB, yCoordA, yCoordB);
+Console.WriteLine($"Distance between A and B is {dist:f3}");
+*/
+
+
+
 
 //Напишите программу, которая принимает на вход число (N) и 
 //выдаёт ряд квадратов чисел от 1 до N.
 //5 -> 1, 4, 9, 16, 25.
 //2 -> 1,4.
 
+void SqPrint (int numberN){
 
+    int current = 1;
+    while (current <= numberN){
+
+     double res = Math.Pow(current, 2);
+     Console.Write($"{res:f0}, ");
+     current++;
+    }
+    Console.WriteLine("\b\b.");
+}
+Console.WriteLine("Input number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+SqPrint (number);
