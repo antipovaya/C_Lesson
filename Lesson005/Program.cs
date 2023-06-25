@@ -123,12 +123,12 @@ PrintArray(massivItog);
 
 int [] RandomArray ()
 {
-    int size = new Random().Next(4,10);
+    int size = 123; //new Random().Next(4,10);
     
     int [] randomArray = new int [size];
     for ( int i = 0; i < size; i++){
 
-        randomArray[i] = new Random().Next(-10,11);
+        randomArray[i] = new Random().Next(0,1000);
     }
     return randomArray;
 }
@@ -145,7 +145,7 @@ void PrintArray(int [] arrayPrint){
 
 // делим на 2 размерб те ищем середину исходного массива
 
-
+/*
 int [] startArray = RandomArray();
 
 int size = startArray.Length;
@@ -153,13 +153,21 @@ int size = startArray.Length;
 
 int [] MultyArray(int [] startArray){
 
+    int [] temp;
+    if (startArray.Length % 2 == 0){
 
-    int [] temp = new int [size/2 + 1];
+        temp = new int [size/2];}
+
+    else{
+        temp = new int [size/2 + 1];
+        temp[size/2] = startArray[size/2];
+    }
     for (int i = 0; i < size/2; i++)
 
     {
         temp[i] = startArray[i] * startArray[startArray.Length - 1 - i];
     }
+    
     return temp;
 
 }
@@ -167,3 +175,30 @@ PrintArray(startArray);
 
 int [] multy = MultyArray(startArray);
 PrintArray(multy);
+
+*/
+
+
+//Задайте одномерный массив из 123 случайных чисел.
+//Найдите количество элементов массива, значения которых лежат в отрезке [10,99].
+//Пример для массива из 5, а не 123 элементов. В своём решении сделайте для 123
+//[5, 18, 123, 6, 2] -> 1
+//[1, 2, 3, 6, 2] -> 0
+//[10, 11, 12, 13, 14] -> 5
+
+void CountOfelem (int [] countArray)
+{
+
+    int count = 0;
+    for (int i = 0; i<countArray.Length; i++)
+    {
+        if(countArray[i] >= 10 && countArray[i] <=99)
+        {
+            count++;
+        }
+    }
+    Console.WriteLine($"-> {count}");
+}
+int [] randomArray = RandomArray();
+PrintArray(randomArray);
+CountOfelem(randomArray);
