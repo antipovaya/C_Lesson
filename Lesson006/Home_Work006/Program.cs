@@ -26,7 +26,12 @@
     Console.WriteLine ("Ваши числа: ");
 
     for(int i = 0; i < array.Length; i++)
-    Console.Write($" {array[i]}, ");
+        if(i == array.Length - 1){
+           Console.Write($" {array[i]}. "); 
+        }
+        else
+            Console.Write($" {array[i]}, ");
+    Console.WriteLine();
     
  }
 
@@ -47,10 +52,3 @@ PrintArray(newArray);
 Console.WriteLine($"Количество чисел больше 0 составило: {CountPositiveNum(newArray)}");
 
 
-// Дан двумерный массив. Вывести на экран:
-// а) все элементы пятой строки массива;
-// б) все элементы s-го столбца массива.
-
-//Дан двумерный массив. Найти:
-//а) сумму элементов, расположенных в левом верхнем и правом нижнем углах;
-//б) среднее арифметическое элементов, расположенных в четырех углах.
