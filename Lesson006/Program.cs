@@ -30,17 +30,17 @@
 // // }
 
 
-void PrintArray(int[] arrToPrint)
-{
-    Console.WriteLine("Массив:");
-    for (int i = 0; i < arrToPrint.Length; i++)
-    {
-        Console.Write(arrToPrint[i]);
-        if (i != arrToPrint.Length - 1) Console.Write(", ");
-        else Console.WriteLine(".");
-    }
-    Console.WriteLine();
-}
+// void PrintArray(int[] arrToPrint)
+// {
+//     Console.WriteLine("Массив:");
+//     for (int i = 0; i < arrToPrint.Length; i++)
+//     {
+//         Console.Write(arrToPrint[i]);
+//         if (i != arrToPrint.Length - 1) Console.Write(", ");
+//         else Console.WriteLine(".");
+//     }
+//     Console.WriteLine();
+// }
 
 // int [] ReversArray (int [] arrayRevers){
 
