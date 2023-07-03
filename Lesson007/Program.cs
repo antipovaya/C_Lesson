@@ -219,7 +219,7 @@ void Print (int [,] array2d){
             Console.Write(array2d[i,j] + " ");
         }
         Console.WriteLine(); // переход вывода на новую строку
-}
+    }
 Console.WriteLine(); // отступ от массива
 }
 
