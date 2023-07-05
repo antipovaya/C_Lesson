@@ -23,7 +23,7 @@
 
 //     for (int i = 0; i < arrayToShow.Length; i++)
 //     {
-//         Console.Write (arrayToShow[i] + " ");
+//         Console.Write(arrayToShow[i] + " ");
 //     }
    
 // }
