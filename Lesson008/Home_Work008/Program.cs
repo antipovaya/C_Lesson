@@ -9,12 +9,6 @@
 // 8 4 4 2
 
 
- int Message (string message){
-
-    Console.WriteLine(message);
-    int num_uz = Convert.ToInt32(Console.ReadLine());
-    return num_uz;
- }
 
 
  int [,] CreateArray2D (){
@@ -50,37 +44,27 @@ int [,] ArrangeArray (int [,] arrayRandom)
 {
     int n = arrayRandom.GetLength(0); //строки
     int m = arrayRandom.GetLength(1); //столбцы
-    int [,] arrayCorrect = new int[n,m];
-    int max = 0;
+    //int [,] arrayCorrect = new int[n,m];
+    int max = arrayRandom[0,0];
 
-    
+        
             for (int i = 0; i < n; i++)
-            {
-                for(int j = 0; j < m; j++)
-                {
-                    max = 0;
-                    if ( arrayRandom[i,j] > max){
-                        max = arrayRandom[i,j];
-                    }
-                for (int x = 0; x < n; x++)
-                {
-                    for(int y = 0; y < m; y++)
-                    {
-                        arrayCorrect[x,y+j] = max;
-                        max =0;
-                    }
-                }
-                    
-                }
-            }
-   
+                    for(int j = 0; j < m; j++)
+                        for (int x = 0; x < n ; x++)
+                            for (int y = 0; y < m ; y++)
 
-return arrayCorrect;
+                            if (arrayRandom[x,y] > arrayRandom[i,j])
+                            {
+                                max = arrayRandom[x,y];
+                                arrayRandom[x,y] = arrayRandom[i,j];
+                                arrayRandom[i,j] = max;
+                            }          
+return arrayRandom;
 }  
 
-// int [,] arr = CreateArray2D();
-// Print(arr);
-// Print(ArrangeArray(arr));
+int [,] arr = CreateArray2D();
+Print(arr);
+Print(ArrangeArray(arr));
 
 
 
@@ -102,7 +86,7 @@ return arrayCorrect;
 
 void MinSumRows (int [,] arrayNew){
 
-int [] arrSumRows = new int [arrayNew.GetLength(0)];
+int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одномерный масссив
 
 
 
@@ -111,8 +95,8 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)];
         int Sum = 0;
         for (int j = 0; j < arrayNew.GetLength(1); j++){
 
-        Sum = Sum + arrayNew[i,j];
-        arrSumRows[i] = Sum;
+        Sum = Sum + arrayNew[i,j]; //Считаю суммму каждой строки в двумерном массиве
+        arrSumRows[i] = Sum;       //Перезаписываю ее как элемент одномерного
         
         }
     }    
@@ -121,8 +105,8 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)];
     for (int z = 0; z < arrSumRows.Length; z++){
         
         if(arrSumRows[z] < minSum){
-            minSum = arrSumRows[z];
-            count = z+1;
+            minSum = arrSumRows[z];//ищу минимальное значение одномерного массива
+            count = z+1;           //номер элемента минимального занчения
         }
         
     }
@@ -132,3 +116,41 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)];
 // int [,] arraytoMin = CreateArray2D();
 // Print(arraytoMin);
 // MinSumRows(arraytoMin);
+
+
+
+
+// Задача 58: Задайте две матрицы. Напишите программу, 
+// которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+
+
+
+
+
+
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+// Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+
+
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+
