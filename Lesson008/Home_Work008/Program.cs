@@ -51,7 +51,6 @@ void Print2 (int [,] array2D){
 Console.WriteLine();
 }
 
-
 int [,] ArrangeArray (int [,] arrayRandom)
 {
     int n = arrayRandom.GetLength(0); //строки
@@ -72,9 +71,9 @@ int [,] ArrangeArray (int [,] arrayRandom)
 return arrayRandom;
 }  
 
-int [,] arr = CreateArray2D();
-Print(arr);
-Print2(ArrangeArray(arr));
+// int [,] arr = CreateArray2D();
+// Print(arr);
+// Print2(ArrangeArray(arr));
 
 
 
@@ -91,6 +90,20 @@ Print2(ArrangeArray(arr));
 // выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
 
+ int [,] CreateRectangularArray2D (){
+
+    int m = new Random().Next(3, 5);
+    int n = m + 2;
+
+    int [,] creatArr = new int [m, n];
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++)
+        {
+            creatArr[i,j] = new Random().Next(0, 10);
+        }
+    }
+    return creatArr;
+ }
 
 void MinSumRows (int [,] arrayNew){
 
@@ -114,6 +127,7 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
         
         if(arrSumRows[z] < minSum){
             minSum = arrSumRows[z];//ищу минимальное значение одномерного массива
+        
             count = z+1;           //номер элемента минимального занчения
         }
         
@@ -121,7 +135,7 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
     Console.Write($"Минимальной является строка номер {count}, сумма ее значений составила {minSum}");
 }
 
-// int [,] arraytoMin = CreateArray2D();
+// int [,] arraytoMin = CreateRectangularArray2D();
 // Print(arraytoMin);
 // MinSumRows(arraytoMin);
 
@@ -137,8 +151,14 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 // 18 20
 // 15 18
 
+//if(Matrix1.GetLength(1) == Matrix2.GetLength(0)) - это записать в метод по созданию матриц
+   
+int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
+{
+    
 
 
+}
 
 
 
@@ -152,7 +172,52 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 // 26(1,0,1) 55(1,1,1)
 
 
+int [,,] CreateArray3D (){
 
+    int x = new Random().Next(3, 5);
+    int y = new Random().Next(3, 5);
+    int z = 3;
+
+    int [,,] creatArr = new int [x,y,z];
+    for (int i = 0; i < x; i++){
+        for(int j = 0; j < y; j++)
+            for(int k = 0; k < z; k++)
+            {
+                creatArr[i,j,k] = new Random().Next(0, 58);
+
+            }
+    }
+    return creatArr;
+ }
+
+int [,] CreateArray2D (){
+
+    int m = new Random().Next(3, 5);
+    int n = new Random().Next(3, 5);
+
+    int [,] creatArr = new int [m, n];
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++)
+        {
+            creatArr[i,j] = new Random().Next(0, 10);
+        }
+    }
+    return creatArr;
+ }
+
+void Print (int [,] array2D){
+    Console.WriteLine("Ваш массив: ");
+    Console.WriteLine();
+
+    for(int i = 0; i < array2D.GetLength(0); i++){
+        for(int j = 0; j < array2D.GetLength(1); j++){
+            
+            Console.Write(array2D[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+Console.WriteLine();
+}
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
