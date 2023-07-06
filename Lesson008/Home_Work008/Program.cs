@@ -19,8 +19,8 @@
 
  int [,] CreateArray2D (){
 
-    int m = new Random().Next(3, 7);
-    int n = new Random().Next(3, 7);
+    int m = new Random().Next(3, 5);
+    int n = new Random().Next(3, 5);
 
     int [,] creatArr = new int [m, n];
     for (int i = 0; i < m; i++){
@@ -48,21 +48,87 @@ Console.WriteLine();
 
 int [,] ArrangeArray (int [,] arrayRandom)
 {
-    int n = arrayRandom.GetLength(0);
-    int m = arrayRandom.GetLength(1);
-    int [,] arrayCorrect = new int [arrayRandom.GetLength(0), arrayRandom.GetLength(1)];
-    int max = arrayRandom[0,0];
-    arrayCorrect[n - 1, m - 1] = arrayRandom[0,0];
+    int n = arrayRandom.GetLength(0); //строки
+    int m = arrayRandom.GetLength(1); //столбцы
+    int [,] arrayCorrect = new int[n,m];
+    int max = 0;
 
-    for (int i = 0; i < arrayRandom.GetLength(0) ; i++){
-
-        for(int j = 0; j < arrayRandom.GetLength(1); j++){
-
-            if (arrayRandom[i,j] > max) {
-                max = arrayRandom[i,j];
-                arrayCorrect[n - 1 - i, m - 1 - j] = max;
+    
+            for (int i = 0; i < n; i++)
+            {
+                for(int j = 0; j < m; j++)
+                {
+                    max = 0;
+                    if ( arrayRandom[i,j] > max){
+                        max = arrayRandom[i,j];
+                    }
+                for (int x = 0; x < n; x++)
+                {
+                    for(int y = 0; y < m; y++)
+                    {
+                        arrayCorrect[x,y+j] = max;
+                        max =0;
+                    }
+                }
+                    
+                }
             }
+   
+
+return arrayCorrect;
+}  
+
+// int [,] arr = CreateArray2D();
+// Print(arr);
+// Print(ArrangeArray(arr));
+
+
+
+
+
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, 
+// которая будет находить строку с наименьшей суммой элементов.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и 
+// выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+
+
+void MinSumRows (int [,] arrayNew){
+
+int [] arrSumRows = new int [arrayNew.GetLength(0)];
+
+
+
+    for (int i = 0; i < arrayNew.GetLength(0); i++)
+    {
+        int Sum = 0;
+        for (int j = 0; j < arrayNew.GetLength(1); j++){
+
+        Sum = Sum + arrayNew[i,j];
+        arrSumRows[i] = Sum;
+        
         }
+    }    
+    int minSum = arrSumRows[0];
+    int count = 0;
+    for (int z = 0; z < arrSumRows.Length; z++){
+        
+        if(arrSumRows[z] < minSum){
+            minSum = arrSumRows[z];
+            count = z+1;
+        }
+        
     }
-    return arrayCorrect;
+    Console.Write($"Минимальной является строка номер {count}, сумма ее значений составила {minSum}");
 }
+
+// int [,] arraytoMin = CreateArray2D();
+// Print(arraytoMin);
+// MinSumRows(arraytoMin);
