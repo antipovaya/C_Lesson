@@ -150,23 +150,60 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 // 18 20
 // 15 18
 
-//if(Matrix1.GetLength(1) == Matrix2.GetLength(0)) - это записать в метод по созданию матриц
+// if(Matrix1.GetLength(1) == Matrix2.GetLength(0)) - это записать в метод по созданию матриц
    
-// int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
-// {
+int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
+{
     
-//     int [,] finalArray = new int [Matrix1.GetLength(0), Matrix2.GetLength(1)];
+    int [,] finalArray = new int [Matrix1.GetLength(0), Matrix2.GetLength(1)];
 
-//     for(int j = 0; j < finalArray.GetLength(1); j++)
-//     {
-//         for(int i = 0; i < finalArray.GetLength(0); i++)
-//         {
-//             finalArray[i,j] = Matrix1[i,j]*Matrix2[j,j] + Matrix1[i,j+1]*Matrix2[j+1,j];
-//         }
-//     }
+    for(int j = 0; j < finalArray.GetLength(1); j++)
+    {
+        for(int i = 0; i < finalArray.GetLength(0); i++)
+        {
+            finalArray[i,j] = Matrix1[i,j]*Matrix2[j,j] + Matrix1[i,j+1]*Matrix2[j+1,j];
+        }
+    }
+return finalArray;
+}
 
-// }
+int [,] CreateArray2DMatrix1 (){
 
+    int m = 2;
+    int n = 3;
+
+    int [,] creatArr = new int [m, n];
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++)
+        {
+            creatArr[i,j] = new Random().Next(0, 10);
+        }
+    }
+    return creatArr;
+ }
+
+int [,] CreateArray2DMatrix2 (){
+
+    int m = 3;
+    int n = 2;
+
+    int [,] creatArr = new int [m, n];
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++)
+        {
+            creatArr[i,j] = new Random().Next(0, 10);
+        }
+    }
+    return creatArr;
+ }
+
+int[,] Matr1 = CreateArray2DMatrix1();
+Print(Matr1);
+
+int[,] Matr2 = CreateArray2DMatrix2();
+Print(Matr2);
+
+Print(MatrixProduct(Matr1,Matr2));
 
 
 
