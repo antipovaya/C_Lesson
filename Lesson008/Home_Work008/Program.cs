@@ -179,26 +179,47 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 // 26(1,0,1) 55(1,1,1)
 
 
-int[,,] Create3DArray (int row, int col, int dep, int min, int max) 
+int [] SupportingArray (int row, int col, int dep)
 {
-    int[,,] matrix = new int[row, col, dep];
-    // int[] uniqueArray = new int[row*col*dep];
-    // for (int z = 0; z < uniqueArray.Length; z++)
-    // {
-    //     uniqueArray[z] = new Random().Next(1, 100);
-    // } 
-    // for (int z = 0; z < uniqueArray.Length; z++)
-    // {
-    //     if (uniqueArray[z] == uniqueArray[z+1])
-    //     {
-    //         uniqueArray[z] = uniqueArray[z] + 1;
-    //     }
-    // }
+int[] uniqueArray = new int[row*col*dep];
+    for (int z = 0; z < uniqueArray.Length; z++)
+    {
+        uniqueArray[z] = new Random().Next(10, 20);
+    } 
+   return uniqueArray;
+}
 
-    // for (int z = 0; z < uniqueArray.Length; z++)
-    // {
-    //     Console.Write($"Вспомогательный одномерный массив: {uniqueArray[z]} ");
-    // } 
+void CheckArray (int [] arr)
+{
+    int count = 10;
+    for (int i = 0; i < arr.Length; i++)
+        for (int k = 1; k < arr.Length; k++)
+    {
+        if (arr[i] == arr[k])
+        {
+            arr[k] = arr[k] + count; 
+            count--;
+            
+        }
+        else count++;
+    }
+  Console.WriteLine();  
+}
+
+
+void PrintArray (int [] array_to_print){
+
+    Console.WriteLine ("Ваш вспомогательный массив: ");
+    for (int i = 0; i < array_to_print.Length; i++)
+        Console.Write (array_to_print[i] + " ");
+        Console.WriteLine();
+}
+
+int[,,] Create3DArray (int row, int col, int dep, int [] arr) 
+{
+    
+    int[,,] matrix = new int[row, col, dep];
+    int c = 0;
 
     for (int i = 0; i < matrix.GetLength(0); i++) 
     {
@@ -207,16 +228,24 @@ int[,,] Create3DArray (int row, int col, int dep, int min, int max)
             for (int k = 0; k < matrix.GetLength(2); k++)
                
                     {
-                        matrix[i,j,k] = new Random().Next(min, max + 1);
+                        matrix[i,j,k] = arr[c];
+                        c++;
                     }
-                
-        }
-    }
+                    
+        }        
+    }    
+
+    
     return matrix;
 } 
  
+
 void Print3D(int[,,] matrix)
 {
+    Console.WriteLine();
+    Console.WriteLine("Ваш трехмерный массив из неповторяющихся чисел: ");
+    Console.WriteLine();
+
     for (int k = 0; k < matrix.GetLength(2); k++)
     {
         for (int i = 0; i <  matrix.GetLength(0); i++)
@@ -225,15 +254,20 @@ void Print3D(int[,,] matrix)
             for (int j = 0; j < matrix.GetLength(1); j++) 
                   
                 {
-                Console.Write($"{matrix[i, j, k], 1}({i},{j},{k})|");            
+                    Console.Write($"{matrix[i, j, k], 1}({i},{j},{k})|");            
                 }
     
             Console.WriteLine();        
         }        
     }
 }
-int[,,] array3D = Create3DArray(2, 2, 2, 10, 99);
-Print3D(array3D);
+
+// int [] firstArray = SupportingArray(2,2,2);
+// PrintArray(firstArray);
+// CheckArray(firstArray);
+// PrintArray(firstArray);
+// int[,,] array3D = Create3DArray(2, 2, 2, firstArray);
+// Print3D(array3D);
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
@@ -242,4 +276,85 @@ Print3D(array3D);
 // 11 16 15 06
 // 10 09 08 07
 
+
+ int [,] CreateSpiralArray2D (){
+
+    int m = 4;
+    int n = 4;
+
+    int [,] createSpiralArr = new int [m, n];
+    int count = 1;
+    for (int i = 0; i == 0; i++){
+        for(int j = 0; j < n; j++)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    for (int j = n-1; j == n-1; j++){
+        for(int i = 1 ; i < m; i++)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    for (int i = m-1; i == m-1; i++){
+        for(int j = n - 2; j >= 0; j--)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    for (int j = 0; j == 0; j++){
+        for(int i = m-2; i >0; i--)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    for (int i = 1; i == 1; i++){
+        for(int j = 1; j < n-1; j++)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    for (int j = n-2; j == n-2; j++){
+        for(int i = m-2; i == m-2; i++)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+     for (int i = m-2; i == m-2; i++){
+        for(int j = 1; j ==1; j++)
+        {
+            createSpiralArr[i,j] = count;
+            count++;
+        }
+    }
+    
+    return createSpiralArr;
+ }
+
+ void Print3 (int [,] array2D){
+    Console.WriteLine("Ваш массив: ");
+    Console.WriteLine();
+
+    for(int i = 0; i < array2D.GetLength(0); i++){
+        for(int j = 0; j < array2D.GetLength(1); j++){
+
+            if(array2D[i,j] <10)
+            {
+                 Console.Write($"{0}{array2D[i,j]} ");
+            }    
+            else Console.Write(array2D[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+Console.WriteLine();
+}
+
+// int [,] arr = CreateSpiralArray2D();
+// Print3(arr);
 
