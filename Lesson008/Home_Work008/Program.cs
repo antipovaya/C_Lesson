@@ -122,13 +122,12 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
         }
     }    
     int minSum = arrSumRows[0];
-    int count = 0;
+    int count = 1;
     for (int z = 0; z < arrSumRows.Length; z++){
         
         if(arrSumRows[z] < minSum){
-            minSum = arrSumRows[z];//ищу минимальное значение одномерного массива
-        
-            count = z+1;           //номер элемента минимального занчения
+            minSum = arrSumRows[z];//ищу минимальное значение одномерного массива              
+            count = z+1;
         }
         
     }
@@ -153,12 +152,20 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 
 //if(Matrix1.GetLength(1) == Matrix2.GetLength(0)) - это записать в метод по созданию матриц
    
-int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
-{
+// int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
+// {
     
+//     int [,] finalArray = new int [Matrix1.GetLength(0), Matrix2.GetLength(1)];
 
+//     for(int j = 0; j < finalArray.GetLength(1); j++)
+//     {
+//         for(int i = 0; i < finalArray.GetLength(0); i++)
+//         {
+//             finalArray[i,j] = Matrix1[i,j]*Matrix2[j,j] + Matrix1[i,j+1]*Matrix2[j+1,j];
+//         }
+//     }
 
-}
+// }
 
 
 
@@ -172,52 +179,61 @@ int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
 // 26(1,0,1) 55(1,1,1)
 
 
-int [,,] CreateArray3D (){
+int[,,] Create3DArray (int row, int col, int dep, int min, int max) 
+{
+    int[,,] matrix = new int[row, col, dep];
+    // int[] uniqueArray = new int[row*col*dep];
+    // for (int z = 0; z < uniqueArray.Length; z++)
+    // {
+    //     uniqueArray[z] = new Random().Next(1, 100);
+    // } 
+    // for (int z = 0; z < uniqueArray.Length; z++)
+    // {
+    //     if (uniqueArray[z] == uniqueArray[z+1])
+    //     {
+    //         uniqueArray[z] = uniqueArray[z] + 1;
+    //     }
+    // }
 
-    int x = new Random().Next(3, 5);
-    int y = new Random().Next(3, 5);
-    int z = 3;
+    // for (int z = 0; z < uniqueArray.Length; z++)
+    // {
+    //     Console.Write($"Вспомогательный одномерный массив: {uniqueArray[z]} ");
+    // } 
 
-    int [,,] creatArr = new int [x,y,z];
-    for (int i = 0; i < x; i++){
-        for(int j = 0; j < y; j++)
-            for(int k = 0; k < z; k++)
-            {
-                creatArr[i,j,k] = new Random().Next(0, 58);
-
-            }
-    }
-    return creatArr;
- }
-
-int [,] CreateArray2D (){
-
-    int m = new Random().Next(3, 5);
-    int n = new Random().Next(3, 5);
-
-    int [,] creatArr = new int [m, n];
-    for (int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++)
+    for (int i = 0; i < matrix.GetLength(0); i++) 
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            creatArr[i,j] = new Random().Next(0, 10);
+            for (int k = 0; k < matrix.GetLength(2); k++)
+               
+                    {
+                        matrix[i,j,k] = new Random().Next(min, max + 1);
+                    }
+                
         }
     }
-    return creatArr;
- }
-
-void Print (int [,] array2D){
-    Console.WriteLine("Ваш массив: ");
-    Console.WriteLine();
-
-    for(int i = 0; i < array2D.GetLength(0); i++){
-        for(int j = 0; j < array2D.GetLength(1); j++){
-            
-            Console.Write(array2D[i,j] + " ");
-        }
-        Console.WriteLine();
+    return matrix;
+} 
+ 
+void Print3D(int[,,] matrix)
+{
+    for (int k = 0; k < matrix.GetLength(2); k++)
+    {
+        for (int i = 0; i <  matrix.GetLength(0); i++)
+        {
+            Console.Write("|");
+            for (int j = 0; j < matrix.GetLength(1); j++) 
+                  
+                {
+                Console.Write($"{matrix[i, j, k], 1}({i},{j},{k})|");            
+                }
+    
+            Console.WriteLine();        
+        }        
     }
-Console.WriteLine();
 }
+int[,,] array3D = Create3DArray(2, 2, 2, 10, 99);
+Print3D(array3D);
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
