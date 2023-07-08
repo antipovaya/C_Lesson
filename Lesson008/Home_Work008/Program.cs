@@ -150,60 +150,82 @@ int [] arrSumRows = new int [arrayNew.GetLength(0)]; //Создала одном
 // 18 20
 // 15 18
 
-// if(Matrix1.GetLength(1) == Matrix2.GetLength(0)) - это записать в метод по созданию матриц
-   
+
 int [,] MatrixProduct (int [,] Matrix1, int [,] Matrix2)
 {
     
     int [,] finalArray = new int [Matrix1.GetLength(0), Matrix2.GetLength(1)];
 
-    for(int j = 0; j < finalArray.GetLength(1); j++)
-    {
-        for(int i = 0; i < finalArray.GetLength(0); i++)
-        {
-            finalArray[i,j] = Matrix1[i,j]*Matrix2[j,j] + Matrix1[i,j+1]*Matrix2[j+1,j];
-        }
-    }
+   for (int i = 0; i < Matrix1.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrix2.GetLength(1); j++)
+                {
+                    for (int k = 0; k < Matrix2.GetLength(0); k++)
+                    {
+                        finalArray[i,j] += Matrix1[i,k] * Matrix2[k,j];
+                    }
+                }
+            }
 return finalArray;
 }
 
-int [,] CreateArray2DMatrix1 (){
+int [,] CreateArray2DMatrix1 (int m1, int n1){
 
-    int m = 2;
-    int n = 3;
-
-    int [,] creatArr = new int [m, n];
-    for (int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++)
+    
+    int [,] Matrix1 = new int [m1, n1];
+    for (int i = 0; i < m1; i++){
+        for(int j = 0; j < n1; j++)
         {
-            creatArr[i,j] = new Random().Next(0, 10);
+            Matrix1[i,j] = new Random().Next(0, 10);
         }
     }
-    return creatArr;
+    return Matrix1;
  }
 
-int [,] CreateArray2DMatrix2 (){
 
-    int m = 3;
-    int n = 2;
+int [,] CreateArray2DMatrix2 (int m2, int n2){
 
-    int [,] creatArr = new int [m, n];
-    for (int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++)
+    
+
+    int [,] Matrix2 = new int [m2, n2];
+    for (int i = 0; i < m2; i++){
+        for(int j = 0; j < n2; j++)
         {
-            creatArr[i,j] = new Random().Next(0, 10);
+            Matrix2[i,j] = new Random().Next(0, 10);
         }
     }
-    return creatArr;
+    return Matrix2;
  }
 
-int[,] Matr1 = CreateArray2DMatrix1();
-Print(Matr1);
+// Console.WriteLine("Введите количество строк 1-го массива: ");
+//     int m1 = Convert.ToInt32(Console.ReadLine());
 
-int[,] Matr2 = CreateArray2DMatrix2();
-Print(Matr2);
+//     Console.WriteLine("Введите количество столбцов 1-го массива: ");
+//     int n1 = Convert.ToInt32(Console.ReadLine());
 
-Print(MatrixProduct(Matr1,Matr2));
+//     Console.WriteLine("Введите количество строк 2-го массива (помните, что для умножения матриц количество столбцов 1-го массива должны совпадать с количеством строк 2-го): ");
+//     int m2 = Convert.ToInt32(Console.ReadLine());
+
+//     Console.WriteLine("Введите количество столбцов 2-го массива: ");
+//     int n2 = Convert.ToInt32(Console.ReadLine());
+
+//     if (n1 != m2) 
+//     {
+//         Console.WriteLine("Ошибка! Данные матрицы невозможно перемножить! ");
+//     }
+//     else
+// { 
+// int[,] Matr1 = CreateArray2DMatrix1(m1,n1);
+// Print(Matr1);
+
+// int[,] Matr2 = CreateArray2DMatrix2(m2,n2);
+// Print(Matr2);
+
+// Print(MatrixProduct(Matr1,Matr2));
+// }
+
+
+
 
 
 
@@ -306,6 +328,10 @@ void Print3D(int[,,] matrix)
 // int[,,] array3D = Create3DArray(2, 2, 2, firstArray);
 // Print3D(array3D);
 
+
+
+
+
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
 // 01 02 03 04
@@ -313,8 +339,8 @@ void Print3D(int[,,] matrix)
 // 11 16 15 06
 // 10 09 08 07
 
-
- int [,] CreateSpiralArray2D (){
+/*вариант1, работает, но громоздкий
+ int [,] CreateSpiralArray2D (){ 
 
     int m = 4;
     int n = 4;
@@ -374,6 +400,8 @@ void Print3D(int[,,] matrix)
     return createSpiralArr;
  }
 
+ */
+
  void Print3 (int [,] array2D){
     Console.WriteLine("Ваш массив: ");
     Console.WriteLine();
@@ -392,6 +420,58 @@ void Print3D(int[,,] matrix)
 Console.WriteLine();
 }
 
-// int [,] arr = CreateSpiralArray2D();
+int [,] CreateSpiralArray2DVar2 (){//вариант 2
+
+    int m = 4;
+    int n = 4;
+
+    int [,] createSpiralArr = new int [m, n];
+    int count = 1;
+    
+    for (int a = 0; a<2; a++)
+    {
+        for (int i = 0+a; i == 0 + a ; i++){
+            for(int j = 0; j < n; j++)
+                if(createSpiralArr [i,j] == 0)
+                {
+                    createSpiralArr[i,j] = count;
+                    count++;
+                }
+        }
+
+        for (int j = n-1-a; j == n-1-a; j++){
+            for(int i = 0 ; i < m; i++)
+                if(createSpiralArr [i,j] == 0)
+                {
+                    createSpiralArr[i,j] = count;
+                    count++;
+                }
+        }
+    
+        for (int i = m-1-a; i == m-1-a; i++){
+            for(int j = n-1; j >= 0; j--)
+                if(createSpiralArr [i,j] == 0)
+                {
+                    createSpiralArr[i,j] = count;
+                    count++;
+                }
+        }
+
+        for (int j = 0+a; j == 0+a; j++){
+            for(int i = m-1; i >= 0; i--)
+                if(createSpiralArr [i,j] == 0)
+                {
+                    createSpiralArr[i,j] = count;
+                    count++;
+                }
+    
+        }
+    }
+
+return createSpiralArr;
+}
+
+
+// int [,] arr = CreateSpiralArray2DVar2();
 // Print3(arr);
 
