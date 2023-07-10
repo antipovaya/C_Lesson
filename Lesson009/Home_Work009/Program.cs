@@ -42,7 +42,7 @@ int SumElementsFromMtoN (int m, int n)
 // Console.WriteLine("Пожалуйста, введите второе число:");
 // int nUser = Convert.ToInt32(Console.ReadLine());
 
-// Console.WriteLine($"Сумма элементов в промежутке между числами {mUser} и {nUser} составила: {SumElementsFromMtoN(mUser, nUser)}.");
+// Console.WriteLine($"Сумма элементов между числами {mUser} и {nUser} включительно составила: {SumElementsFromMtoN(mUser, nUser)}.");
 
 
 
